@@ -1,211 +1,147 @@
 using System;
 
-public class Program
+class Program
 {
-    public static void Main(string[] args)
+    static void Main(string[] args)
     {
-        bool running = true;
-        
-        while (running)
+        while (true)
         {
-            Console.WriteLine("\nMathematical Formula Menu");
+            Console.WriteLine("\n[ Mathematical Formula Menu ]");
             Console.WriteLine("A. Area");
             Console.WriteLine("P. Perimeter");
             Console.WriteLine("V. Volume");
             Console.WriteLine("X. eXit");
-            Console.Write("Select A, P, V, or X: ");
-            char menu = char.ToUpper(Console.ReadKey().KeyChar);
-            Console.WriteLine();
 
-            switch (menu)
+            Console.Write("Enter your choice: ");
+            string mainChoice = Console.ReadLine().Trim().ToUpper();  // Fixed Input Handling
+
+            switch (mainChoice)
             {
-                case 'A':
+                case "A":
                     AreaMenu();
                     break;
-                case 'P':
+                case "P":
                     PerimeterMenu();
                     break;
-                case 'V':
+                case "V":
                     VolumeMenu();
                     break;
-                case 'X':
-                    running = false;
-                    Console.WriteLine("Exiting program...");
-                    break;
+                case "X":
+                    Console.WriteLine("Exiting program. Goodbye!");
+                    return;
                 default:
-                    Console.WriteLine("Invalid selection. Please try again.");
+                    Console.WriteLine("Invalid choice. Please try again.");
                     break;
             }
         }
     }
 
-    public static void AreaMenu()
+    static void AreaMenu()
     {
-        bool inAreaMenu = true;
-        
-        while (inAreaMenu)
+        while (true)
         {
-            Console.WriteLine("\nArea Menu");
+            Console.WriteLine("\n[ Area Menu ]");
             Console.WriteLine("C. Circle");
             Console.WriteLine("R. Rectangle");
             Console.WriteLine("S. Square");
             Console.WriteLine("T. Triangle");
             Console.WriteLine("X. eXit");
-            Console.Write("Select C, R, S, T, or X: ");
-            char areaMenu = char.ToUpper(Console.ReadKey().KeyChar);
-            Console.WriteLine();
 
-            switch (areaMenu)
+            Console.Write("Enter your choice: ");
+            string choice = Console.ReadLine().Trim().ToUpper();  // Fixed Input Handling
+
+            switch (choice)
             {
-                case 'C':
-                    Console.Write("Input radius: ");
-                    double r = double.Parse(Console.ReadLine());
-                    double area = Math.PI * Math.Pow(r, 2);
-                    Console.WriteLine($"Area of Circle: {area:F2}");
+                case "C":
+                    Console.WriteLine("Area of Circle");
                     break;
-                case 'R':
-                    Console.Write("Input length: ");
-                    double l = double.Parse(Console.ReadLine());
-                    Console.Write("Input width: ");
-                    double w = double.Parse(Console.ReadLine());
-                    area = l * w;
-                    Console.WriteLine($"Area of Rectangle: {area:F2}");
+                case "R":
+                    Console.WriteLine("Area of Rectangle");
                     break;
-                case 'S':
-                    Console.Write("Input side length: ");
-                    double s = double.Parse(Console.ReadLine());
-                    area = Math.Pow(s, 2);
-                    Console.WriteLine($"Area of Square: {area:F2}");
+                case "S":
+                    Console.WriteLine("Area of Square");
                     break;
-                case 'T':
-                    Console.Write("Input base: ");
-                    double b = double.Parse(Console.ReadLine());
-                    Console.Write("Input height: ");
-                    double h = double.Parse(Console.ReadLine());
-                    area = 0.5 * b * h;
-                    Console.WriteLine($"Area of Triangle: {area:F2}");
+                case "T":
+                    Console.WriteLine("Area of Triangle");
                     break;
-                case 'X':
-                    inAreaMenu = false;
-                    break;
+                case "X":
+                    return; // Return to the main menu
                 default:
-                    Console.WriteLine("Invalid selection. Please try again.");
+                    Console.WriteLine("Invalid choice. Please try again.");
                     break;
             }
         }
     }
 
-    public static void PerimeterMenu()
+    static void PerimeterMenu()
     {
-        bool inPerimeterMenu = true;
-        
-        while (inPerimeterMenu)
+        while (true)
         {
-            Console.WriteLine("\nPerimeter Menu");
+            Console.WriteLine("\n[ Perimeter Menu ]");
             Console.WriteLine("C. Circle");
             Console.WriteLine("R. Rectangle");
             Console.WriteLine("S. Square");
             Console.WriteLine("T. Triangle");
             Console.WriteLine("X. eXit");
-            Console.Write("Select C, R, S, T, or X: ");
-            char perimeterMenu = char.ToUpper(Console.ReadKey().KeyChar);
-            Console.WriteLine();
 
-            double perimeter;
-            switch (perimeterMenu)
+            Console.Write("Enter your choice: ");
+            string choice = Console.ReadLine().Trim().ToUpper();  // Fixed Input Handling
+
+            switch (choice)
             {
-                case 'C':
-                    Console.Write("Input radius: ");
-                    double r = double.Parse(Console.ReadLine());
-                    perimeter = 2 * Math.PI * r;
-                    Console.WriteLine($"Perimeter of Circle: {perimeter:F2}");
+                case "C":
+                    Console.WriteLine("Perimeter of Circle");
                     break;
-                case 'R':
-                    Console.Write("Input length: ");
-                    double l = double.Parse(Console.ReadLine());
-                    Console.Write("Input width: ");
-                    double w = double.Parse(Console.ReadLine());
-                    perimeter = 2 * (l + w);
-                    Console.WriteLine($"Perimeter of Rectangle: {perimeter:F2}");
+                case "R":
+                    Console.WriteLine("Perimeter of Rectangle");
                     break;
-                case 'S':
-                    Console.Write("Input side length: ");
-                    double side = double.Parse(Console.ReadLine());
-                    perimeter = 4 * side;
-                    Console.WriteLine($"Perimeter of Square: {perimeter:F2}");
+                case "S":
+                    Console.WriteLine("Perimeter of Square");
                     break;
-                case 'T':
-                    Console.Write("Input side 1: ");
-                    double s1 = double.Parse(Console.ReadLine());
-                    Console.Write("Input side 2: ");
-                    double s2 = double.Parse(Console.ReadLine());
-                    Console.Write("Input side 3: ");
-                    double s3 = double.Parse(Console.ReadLine());
-                    perimeter = s1 + s2 + s3;
-                    Console.WriteLine($"Perimeter of Triangle: {perimeter:F2}");
+                case "T":
+                    Console.WriteLine("Perimeter of Triangle");
                     break;
-                case 'X':
-                    inPerimeterMenu = false;
-                    break;
+                case "X":
+                    return; // Return to the main menu
                 default:
-                    Console.WriteLine("Invalid selection. Please try again.");
+                    Console.WriteLine("Invalid choice. Please try again.");
                     break;
             }
         }
     }
 
-    public static void VolumeMenu()
+    static void VolumeMenu()
     {
-        bool inVolumeMenu = true;
-        
-        while (inVolumeMenu)
+        while (true)
         {
-            Console.WriteLine("\nVolume Menu");
+            Console.WriteLine("\n[ Volume Menu ]");
             Console.WriteLine("C. Cone");
             Console.WriteLine("S. Sphere");
             Console.WriteLine("U. cUbe");
             Console.WriteLine("Y. cYlinder");
             Console.WriteLine("X. eXit");
-            Console.Write("Select C, S, U, Y, or X: ");
-            char volumeMenu = char.ToUpper(Console.ReadKey().KeyChar);
-            Console.WriteLine();
 
-            double volume;
-            switch (volumeMenu)
+            Console.Write("Enter your choice: ");
+            string choice = Console.ReadLine().Trim().ToUpper();  // Fixed Input Handling
+
+            switch (choice)
             {
-                case 'C':
-                    Console.Write("Input radius: ");
-                    double r = double.Parse(Console.ReadLine());
-                    Console.Write("Input height: ");
-                    double h = double.Parse(Console.ReadLine());
-                    volume = (double)1 / 3 * Math.PI * Math.Pow(r, 2) * h;
-                    Console.WriteLine($"Volume of Cone: {volume:F2}");
+                case "C":
+                    Console.WriteLine("Volume of Cone");
                     break;
-                case 'Y':
-                    Console.Write("Input radius: ");
-                    r = double.Parse(Console.ReadLine());
-                    Console.Write("Input height: ");
-                    h = double.Parse(Console.ReadLine());
-                    volume = Math.PI * Math.Pow(r, 2) * h;
-                    Console.WriteLine($"Volume of Cylinder: {volume:F2}");
+                case "S":
+                    Console.WriteLine("Volume of Sphere");
                     break;
-                case 'U':
-                    Console.Write("Input side length: ");
-                    double side = double.Parse(Console.ReadLine());
-                    volume = Math.Pow(side, 3);
-                    Console.WriteLine($"Volume of Cube: {volume:F2}");
+                case "U":
+                    Console.WriteLine("Volume of Cube");
                     break;
-                case 'S':
-                    Console.Write("Input radius: ");
-                    r = double.Parse(Console.ReadLine());
-                    volume = (4.0 / 3.0) * Math.PI * Math.Pow(r, 3);
-                    Console.WriteLine($"Volume of Sphere: {volume:F2}");
+                case "Y":
+                    Console.WriteLine("Volume of Cylinder");
                     break;
-                case 'X':
-                    inVolumeMenu = false;
-                    break;
+                case "X":
+                    return; // Return to the main menu
                 default:
-                    Console.WriteLine("Invalid selection");
+                    Console.WriteLine("Invalid choice. Please try again.");
                     break;
             }
         }
